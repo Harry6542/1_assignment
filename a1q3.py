@@ -33,4 +33,14 @@ def neighbours_around_cell(displayed_grid, i, j):
         neighbours.append(displayed_grid[i][j + 1])
     return neighbours
 def New_state(displayed_grid):
+    """
 
+      Applies the rules of Conway's Game of Life to the provided grid and returns a new state of the grid.
+
+      Parameters:
+      - displayed_grid (list of lists): The current state of the grid, where '*' represents a live cell and '-' represents a dead cell.
+
+      Returns:
+      - new_displayed_grid (list of lists): The new state of the grid after applying the rules.
+
+      """
