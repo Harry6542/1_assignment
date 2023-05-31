@@ -62,3 +62,4 @@ def New_state(displayed_grid):
                     new_row.append('-')
         new_displayed_grid.append(new_row)
     return new_displayed_grid
+def Conway(input_1):
