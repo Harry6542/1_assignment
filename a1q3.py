@@ -73,3 +73,25 @@ def Conway(input_1):
        Returns:None
 
        """
+    """
+
+      Reads the initial state from a text file, applies Conway's Game of Life rules to the grid, and saves the updated state to a new text file.
+
+      Parameters:
+      - input_1 (str): The name or path of the text file containing the initial state of the grid.
+
+      Returns:None
+
+      """
+
+    begining_state = Initial_state_reading(input_1)
+    state_updated = New_state(begining_state)
+    n = len(begining_state)
+    textfile_updated = f"{n}x{n}_updated.txt"
+    with open(textfile_updated, 'w') as file:
+        for row in state_updated:
+            file.write(''.join(row) + '\n')
+    print(f"The updated state has been saved to {textfile_updated}.")
+
+
+Conway("input_1.txt")
