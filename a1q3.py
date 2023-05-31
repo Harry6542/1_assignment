@@ -21,3 +21,14 @@ def neighbours_around_cell(displayed_grid, i, j):
 
             Returns: list: The updated status of the grid display after applying the Game of Life rules.
         """
+    neighbours = []
+    rows, cols = len(displayed_grid), len(displayed_grid[0])
+    if i > 0:
+        neighbours.append(displayed_grid[i - 1][j])
+    if i < rows - 1:
+        neighbours.append(displayed_grid[i + 1][j])
+    if j > 0:
+        neighbours.append(displayed_grid[i][j - 1])
+    if j < cols - 1:
+        neighbours.append(displayed_grid[i][j + 1])
+    return neighbours
