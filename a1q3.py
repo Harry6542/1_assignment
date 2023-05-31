@@ -63,3 +63,13 @@ def New_state(displayed_grid):
         new_displayed_grid.append(new_row)
     return new_displayed_grid
 def Conway(input_1):
+    """
+
+       Reads the initial state from a text file, applies Conway's Game of Life rules to the grid, and saves the updated state to a new text file.
+
+       Parameters:
+       - input_1 (str): The name or path of the text file containing the initial state of the grid.
+
+       Returns:None
+
+       """
