@@ -44,3 +44,21 @@ def New_state(displayed_grid):
       - new_displayed_grid (list of lists): The new state of the grid after applying the rules.
 
       """
+    new_displayed_grid = []
+    for i, row in enumerate(displayed_grid):
+        new_row = []
+        for j, cell in enumerate(row):
+            neighbours = neighbours_around_cell(displayed_grid, i, j)
+            Neighbours_alive = neighbours.count('*')
+            if cell == '*':
+                if Neighbours_alive < 2 or Neighbours_alive > 3:
+                    new_row.append('-')
+                else:
+                    new_row.append('*')
+            else:
+                if Neighbours_alive == 3:
+                    new_row.append('*')
+                else:
+                    new_row.append('-')
+        new_displayed_grid.append(new_row)
+    return new_displayed_grid
