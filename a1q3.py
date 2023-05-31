@@ -7,11 +7,11 @@ def Initial_state_reading(filename):
           begining_state = [list(line.strip()) for line in lines]
           return begining_state
           """
-    with open("input_2.txt", 'r') as file:
+    with open("input_3.txt", 'r') as file:
         lines = file.readlines()
     begining_state = [list(line.strip()) for line in lines]
     return begining_state
-def Conway(input_2):
+def Conway(input_3):
     """
 
     Reads the initial state from a text file, applies Conway's Game of Life rules to the grid, and saves the updated state to a new text file.
@@ -75,7 +75,7 @@ def New_state(displayed_grid):
         new_displayed_grid.append(new_row)
     return new_displayed_grid
 
-def Conway(input_1):
+def Conway(input_3):
     """
 
     Reads the initial state from a text file, applies Conway's Game of Life rules to the grid, and saves the updated state to a new text file.
@@ -87,7 +87,7 @@ def Conway(input_1):
 
     """
 
-    begining_state = Initial_state_reading(input_1)
+    begining_state = Initial_state_reading(input_3)
     state_updated = New_state(begining_state)
     n = len(begining_state)
     textfile_updated = f"{n}x{n}_updated.txt"
@@ -97,4 +97,4 @@ def Conway(input_1):
     print(f"The updated state has been saved to {textfile_updated}.")
 
 
-Conway("input_1.txt")
+Conway("input_3.txt")
