@@ -43,4 +43,58 @@ def neighbours_around_cell(displayed_grid, i, j):
     if j < cols - 1:
         neighbours.append(displayed_grid[i][j + 1])
     return neighbours
+def New_state(displayed_grid):
+    """
 
+    Applies the rules of Conway's Game of Life to the provided grid and returns a new state of the grid.
+
+    Parameters:
+    - displayed_grid (list of lists): The current state of the grid, where '*' represents a live cell and '-' represents a dead cell.
+
+    Returns:
+    - new_displayed_grid (list of lists): The new state of the grid after applying the rules.
+
+    """
+
+    new_displayed_grid = []
+    for i, row in enumerate(displayed_grid):
+        new_row = []
+        for j, cell in enumerate(row):
+            neighbours = neighbours_around_cell(displayed_grid, i, j)
+            Neighbours_alive = neighbours.count('*')
+            if cell == '*':
+                if Neighbours_alive < 2 or Neighbours_alive > 3:
+                    new_row.append('-')
+                else:
+                    new_row.append('*')
+            else:
+                if Neighbours_alive == 3:
+                    new_row.append('*')
+                else:
+                    new_row.append('-')
+        new_displayed_grid.append(new_row)
+    return new_displayed_grid
+
+def Conway(input_1):
+    """
+
+    Reads the initial state from a text file, applies Conway's Game of Life rules to the grid, and saves the updated state to a new text file.
+
+    Parameters:
+    - input_1 (str): The name or path of the text file containing the initial state of the grid.
+
+    Returns:None
+
+    """
+
+    begining_state = Initial_state_reading(input_1)
+    state_updated = New_state(begining_state)
+    n = len(begining_state)
+    textfile_updated = f"{n}x{n}_updated.txt"
+    with open(textfile_updated, 'w') as file:
+        for row in state_updated:
+            file.write(''.join(row) + '\n')
+    print(f"The updated state has been saved to {textfile_updated}.")
+
+
+Conway("input_1.txt")
