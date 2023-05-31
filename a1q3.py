@@ -11,3 +11,36 @@ def Initial_state_reading(filename):
         lines = file.readlines()
     begining_state = [list(line.strip()) for line in lines]
     return begining_state
+def Conway(input_2):
+    """
+
+    Reads the initial state from a text file, applies Conway's Game of Life rules to the grid, and saves the updated state to a new text file.
+
+    Parameters:
+    - input_1 (str): The name or path of the text file containing the initial state of the grid.
+
+    Returns:None
+
+    """
+def neighbours_around_cell(displayed_grid, i, j):
+    """ Updates the status of a grid display based on the Game of Life rules.
+        Args: displayed_grid (list): A list of lists representing the current state of the grid display.
+                                     Each inner list represents a grid display row.
+                                     The characters in each row are saved as distinct inner list components.
+                                     The grid display can include the characters '*' to denote live cells
+                                     and '-' to represent dead cells.
+
+        Returns: list: The updated status of the grid display after applying the Game of Life rules.
+    """
+    neighbours = []
+    rows, cols = len(displayed_grid), len(displayed_grid[0])
+    if i > 0:
+        neighbours.append(displayed_grid[i - 1][j])
+    if i < rows - 1:
+        neighbours.append(displayed_grid[i + 1][j])
+    if j > 0:
+        neighbours.append(displayed_grid[i][j - 1])
+    if j < cols - 1:
+        neighbours.append(displayed_grid[i][j + 1])
+    return neighbours
+
