@@ -32,3 +32,5 @@ def neighbours_around_cell(displayed_grid, i, j):
     if j < cols - 1:
         neighbours.append(displayed_grid[i][j + 1])
     return neighbours
+def New_state(displayed_grid):
+
